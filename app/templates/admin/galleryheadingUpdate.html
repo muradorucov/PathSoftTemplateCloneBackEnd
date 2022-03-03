@@ -1,0 +1,22 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Gallery Heading Update</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <form action="{{url_for('galleryheadingUpdate',id=galleryheading.id)}}" method='POST'>
+                    {{ form.gallery_subheding(class="form-control my-2",placeholder="Enter:Subheading",
+                    value=galleryheading.gallery_subheding)}}
+                    {{ form.gallery_heading(class="form-control my-2",placeholder="Enter: Heading",
+                    value=galleryheading.gallery_heading)}}
+                    {{ form.submit(value='Update Gallery Heading',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

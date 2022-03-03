@@ -1,0 +1,27 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Footer Contact Update</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('footercontactUpdate', id=footer_contact.id)}}" method='POST'>
+                    {{ form.footer_contact_name(class="form-control my-2",placeholder="Enter: Footer Contact Name ",
+                    value=footer_contact.footer_contact_name)}}
+                    {{ form.footer_contact_icon(class="form-control my-2",placeholder="Enter: Footer Contact Icon Class
+                    ",
+                    value=footer_contact.footer_contact_icon )}}
+                    {{ form.footer_contact_link(class="form-control my-2",placeholder="Enter: Footer Contact link ",
+                    value=footer_contact.footer_contact_link)}}
+                    {{ form.submit(value='Update Footer Contact',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

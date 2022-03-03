@@ -1,0 +1,22 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Brand Update</h3>
+    <hr>
+    <div class="container ">
+        <div class="row justify-content-center">
+            <div class="col-9  ">
+                <form action="{{url_for('brandUpdate', id=brand.id)}}" method='POST' enctype="multipart/form-data">
+                    {{ form.brand_imgname(class="form-control my-2",placeholder="Enter: Image Name",
+                    value=brand.brand_imgname)}}
+                    {{ form.brand_img(class="form-control-file my-2")}}
+                    {{ form.submit(value='Update Brand',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

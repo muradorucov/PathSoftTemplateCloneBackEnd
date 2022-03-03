@@ -1,0 +1,302 @@
+{% extends "main/base.html" %}{% block contentmain %}
+
+<!-- crumbs section start -->
+<section id="crumbs">
+    <div class="container crumbs-bread">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-auto">
+            <div class="crumbs-info">
+                <span class="crumbs-home"><a href="/">Home</a></span> <i
+                    class="fas fa-angle-right"></i>
+                <span class="crumbs-about">News</span>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- crumbs section end -->
+
+
+
+
+<!-- blog-content-section start -->
+<section id="main-contact" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-12 item ">
+                <div class="col-12 ">
+                    {% for newspostheading in newspostheadings %}
+                    <div class="section-heading">
+                        <span class="section-heading-span">{{newspostheading.newspost_subheading}}</span>
+                        <h2 class="section-heading-h2">{{newspostheading.newspost_heading}}</h2>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="blog-list">
+                    <div class="news-blog-item col-margin">
+                        <a href="/news/blogitem" class="news-blog-item-img img-style"><img src="static/uploads/Key_Considerations_Of_IPaaS18729.jpg"></a>
+                        <div class="news-blog-item-info">
+                            <h4 class="news-blog-item-title">
+                                <a href="/news/blogitem"><span>Benefits of Async/Await in Programming</span></a>
+                            </h4>
+                            <div class="news-blog-item-row">
+                                <div class="news-blog-item-row-date"> <span>Jan 23, 2020 </span></div>
+                                <div class="news-blog-item-row-author"> by <a href="#!"><span>John Doe</span></a>
+                                </div>
+                            </div>
+                            <div class="news-blog-item-text">
+                                <p>On the other hand, we denounce with righteous indignation and dislike men who are
+                                    so beguiled and demoralized by the charms of pleasure of the moment...</p>
+                            </div>
+                            <div class="news-blog-item-more">
+                                <a href="/news/blogitem">
+                                    <span>Read more</span>
+                                    <i class="material-icons"> east</i>
+                                </a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="news-blog-item col-margin">
+                        <a href="/news/blogitem" class="news-blog-item-img img-style"><img src="static/uploads/Benefits_Of_Async_Await16616.jpg"></a>
+                        <div class="news-blog-item-info">
+                            <h4 class="news-blog-item-title">
+                                <a href="/news/blogitem"><span>Key Considerations Of IPaaS</span></a>
+                            </h4>
+                            <div class="news-blog-item-row">
+                                <div class="news-blog-item-row-date"> <span>Jan 23, 2020 </span></div>
+                                <div class="news-blog-item-row-author"> by <a href="#!"><span>John Doe</span></a>
+                                </div>
+                            </div>
+                            <div class="news-blog-item-text">
+                                <p>On the other hand, we denounce with righteous indignation and dislike men who are
+                                    so beguiled and demoralized by the charms of pleasure of the moment...</p>
+                            </div>
+                            <div class="news-blog-item-more">
+                                <a href="/news/blogitem">
+                                    <span>Read more</span>
+                                    <i class="material-icons"> east</i>
+                                </a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="news-blog-item col-margin">
+                        <a href="/news/blogitem" class="news-blog-item-img img-style"><img src="static/uploads/UX_And_Design25629.jpg"></a>
+                        <div class="news-blog-item-info">
+                            <h4 class="news-blog-item-title">
+                                <a href="/news/blogitem"><span>Hibernate Query Language</span></a>
+                            </h4>
+                            <div class="news-blog-item-row">
+                                <div class="news-blog-item-row-date"> <span>Jan 23, 2020 </span></div>
+                                <div class="news-blog-item-row-author"> by <a href="#!"><span>John Doe</span></a>
+                                </div>
+                            </div>
+                            <div class="news-blog-item-text">
+                                <p>On the other hand, we denounce with righteous indignation and dislike men who are
+                                    so beguiled and demoralized by the charms of pleasure of the moment...</p>
+                            </div>
+                            <div class="news-blog-item-more">
+                                <a href="/news/blogitem">
+                                    <span>Read more</span>
+                                    <i class="material-icons"> east</i>
+                                </a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="news-blog-item col-margin">
+                        <a href="/news/blogitem" class="news-blog-item-img img-style"><img src="static/uploads/Key_Considerations_Of_IPaaS18729.jpg"></a>
+                        <div class="news-blog-item-info">
+                            <h4 class="news-blog-item-title">
+                                <a href="/news/blogitem"><span>Benefits of Async/Await in Programming</span></a>
+                            </h4>
+                            <div class="news-blog-item-row">
+                                <div class="news-blog-item-row-date"> <span>Jan 23, 2020 </span></div>
+                                <div class="news-blog-item-row-author"> by <a href="#!"><span>John Doe</span></a>
+                                </div>
+                            </div>
+                            <div class="news-blog-item-text">
+                                <p>On the other hand, we denounce with righteous indignation and dislike men who are
+                                    so beguiled and demoralized by the charms of pleasure of the moment...</p>
+                            </div>
+                            <div class="news-blog-item-more">
+                                <a href="/news/blogitem">
+                                    <span>Read more</span>
+                                    <i class="material-icons"> east</i>
+                                </a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="news-blog-item col-margin">
+                        <a href="/news/blogitem" class="news-blog-item-img img-style"><img src="static/uploads/Benefits_Of_Async_Await16616.jpg"></a>
+                        <div class="news-blog-item-info">
+                            <h4 class="news-blog-item-title">
+                                <a href="/news/blogitem"><span>Key Considerations Of IPaaS</span></a>
+                            </h4>
+                            <div class="news-blog-item-row">
+                                <div class="news-blog-item-row-date"> <span>Jan 23, 2020 </span></div>
+                                <div class="news-blog-item-row-author"> by <a href="#!"><span>John Doe</span></a>
+                                </div>
+                            </div>
+                            <div class="news-blog-item-text">
+                                <p>On the other hand, we denounce with righteous indignation and dislike men who are
+                                    so beguiled and demoralized by the charms of pleasure of the moment...</p>
+                            </div>
+                            <div class="news-blog-item-more">
+                                <a href="/news/blogitem">
+                                    <span>Read more</span>
+                                    <i class="material-icons"> east</i>
+                                </a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="news-blog-item col-margin">
+                        <a href="/news/blogitem" class="news-blog-item-img img-style"><img src="static/uploads/UX_And_Design26406.jpg"></a>
+                        <div class="news-blog-item-info">
+                            <h4 class="news-blog-item-title">
+                                <a href="/news/blogitem"><span>Hibernate Query Language</span></a>
+                            </h4>
+                            <div class="news-blog-item-row">
+                                <div class="news-blog-item-row-date"> <span>Jan 23, 2020 </span></div>
+                                <div class="news-blog-item-row-author"> by <a href="#!"><span>John Doe</span></a>
+                                </div>
+                            </div>
+                            <div class="news-blog-item-text">
+                                <p>On the other hand, we denounce with righteous indignation and dislike men who are
+                                    so beguiled and demoralized by the charms of pleasure of the moment...</p>
+                            </div>
+                            <div class="news-blog-item-more">
+                                <a href="/news/blogitem">
+                                    <span>Read more</span>
+                                    <i class="material-icons"> east</i>
+                                </a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="bttn-row">
+                            <a href="/">
+                                <div class="bttn">
+                                    <span>Load More</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-12 ">
+                <div class="blog-sidebar">
+                    <form action="#!" class="col-margin">
+                        <div class="blog-form-item">
+                            <input type="email" i placeholder="Search..." class="blog-search">
+                            <button type="submit" class="search-btn"><i class="material-icons md-22">search</i></button>
+                        </div>
+                    </form>
+                    <div class="blog-sidebar-title col-margin">
+                        <h4 class="sidebar-item-title item-title">Sign Up to Blog</h4>
+                        <p class="sidebar-item-desc">Subscribe to our blog to get the latest updates and offers</p>
+                        <form action="#!" method="post" class="subscribe-blog-form" novalidate="novalidate">
+                            <div class="form-field">
+                                <label for="subscribe-blog-email" class="form-field-label">Your Email</label>
+                                <input type="email" class="form-field-input" name="SubscribeEmail" value=""
+                                    autocomplete="off" required="required" id="subscribe-blog-email">
+                            </div>
+                            <div class="form-btn">
+                                <button type="submit" class="btn btn-w240 ripple">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="blog-sidebar-future col-margin">
+                        <h4>Featured Tags</h4>
+                        <ul class="sidebar-tags">
+                            <li><a href="#!">Software</a></li>
+                            <li><a href="#!">Development</a></li>
+                            <li><a href="#!">Programming</a></li>
+                            <li><a href="#!">Software</a></li>
+                            <li><a href="#!">Development</a></li>
+                            <li><a href="#!">IT</a></li>
+                        </ul>
+                    </div>
+                    <div class="blog-sidebar-recent col-margin">
+                        <p class="sidebar-item-title item-title">Recent Posts</p>
+                        <ul class="sidebar-recent-posts">
+                            <li>
+                                <a href="#!" class="sidebar-recent-post">
+                                    <div class="sidebar-recent-post-img img-style">
+                                        <img class="lazy" src="static/uploads/UX_And_Design26406.jpg" alt="">
+                                    </div>
+                                    <div class="sidebar-recent-post-title">Benefits of Async/Await in Programming
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" class="sidebar-recent-post">
+                                    <div class="sidebar-recent-post-img img-style">
+                                        <img class="lazy" src="static/uploads/UX_And_Design25629.jpg" alt="">
+                                    </div>
+                                    <div class="sidebar-recent-post-title">Key Considerations and Warnings of iPaaS
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" class="sidebar-recent-post">
+                                    <div class="sidebar-recent-post-img img-style">
+                                        <img class="lazy" src="static/uploads/sliderimage684.jpg" alt="">
+                                    </div>
+                                    <div class="sidebar-recent-post-title">Usage of Hibernate Query Language</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="blog-sidebar-categories col-margin">
+                        <div class="section-bg item-border-radius sibebar-item-bg">
+                            <p class="sidebar-item-title item-title">Categories</p>
+                            <ul class="sidebar-cat">
+                                <li class="sidebar-cat-item">
+                                    <a href="#!" class="sidebar-cat-link">Startup</a>
+                                    <span class="sidebar-cat-count">25</span>
+                                </li>
+                                <li class="sidebar-cat-item">
+                                    <a href="#!" class="sidebar-cat-link">Software Development</a>
+                                    <span class="sidebar-cat-count">14</span>
+                                </li>
+                                <li class="sidebar-cat-item">
+                                    <a href="#!" class="sidebar-cat-link">Hybrid Cloud Management</a>
+                                    <span class="sidebar-cat-count">20</span>
+                                </li>
+                                <li class="sidebar-cat-item">
+                                    <a href="#!" class="sidebar-cat-link">Software Solutions</a>
+                                    <span class="sidebar-cat-count">3</span>
+                                </li>
+                                <li class="sidebar-cat-item">
+                                    <a href="#!" class="sidebar-cat-link">Creating Better Software</a>
+                                    <span class="sidebar-cat-count">18</span>
+                                </li>
+                                <li class="sidebar-cat-item">
+                                    <a href="#!" class="sidebar-cat-link">Through Design Thinking</a>
+                                    <span class="sidebar-cat-count">9</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- blog-content-section end -->
+
+
+{% endblock %}

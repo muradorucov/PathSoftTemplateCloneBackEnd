@@ -1,0 +1,56 @@
+{% extends "main/base.html" %}{% block contentmain %}
+
+<!-- crumbs section start -->
+<section id="crumbs">
+    <div class="container crumbs-bread">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-auto">
+                <div class="crumbs-info">
+                    <span class="crumbs-home"><a href="/">Home</a></span> <i class="fas fa-angle-right"></i>
+                    <span class="crumbs-about">Services</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- crumbs section end -->
+
+<!-- section Services start -->
+<section id="services-bar" class="section-padding">
+    <div class="container width">
+        <div class="row">
+            <div class="col-12 ">
+                {% for servicesheading in servicesheadings %}
+                <div class="section-heading">
+                    <span class="section-heading-span">{{servicesheading.servicessubheading}}</span>
+                    <h2 class="section-heading-h2">{{servicesheading.service_heading}}</h2>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {% for servicesbox in servicesboxs %}
+            <div class="col-4 services-item-box animation">
+
+                <div class="services-item service-style">
+                    <a href="{{servicesbox.servicesbox_url}}" class="">
+                        <div class="overlay"></div>
+                        <i
+                            class=" services-icon material-icons material-icons-outlined md-icon1">{{servicesbox.servicesbox_icon}}</i>
+                        <div class="services-info">
+                            <i
+                                class=" services-icon-main material-icons material-icons-outlined md-icon1">{{servicesbox.servicesbox_icon}}</i>
+                            <h2 class="section-item-h2">{{servicesbox.servicesbox_head}}</h2>
+                            <p class="section-title">{{servicesbox.servicesbox_desc}}</p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- section Services end -->
+
+{% endblock %}

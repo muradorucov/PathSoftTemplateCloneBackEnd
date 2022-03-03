@@ -1,0 +1,75 @@
+{% extends "main/base.html" %}{% block contentmain %}
+
+<!-- crumbs section start -->
+<section id="crumbs">
+    <div class="container crumbs-bread">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-auto">
+            <div class="crumbs-info">
+                <span class="crumbs-home"><a href="/">Home</a></span> <i
+                    class="fas fa-angle-right"></i>
+                <span class="crumbs-about">Login</span>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- crumbs section end -->
+
+<!-- Login Section start -->
+<section id="login">
+    <div class="container section-padding">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-login">
+                    <div class="section-heading">
+                        <h2 class="section-heading-h2">Login</h2>
+                    </div>
+                    <form action="#!">
+                        <div class="form-field">
+                            <input type="text" placeholder="Login" class="form-field-input">
+                        </div>
+                        <div class="form-field">
+                            <input type="password" placeholder="Password" class="form-field-input">
+                        </div>
+                        <div class="form-field">
+                            <div class="checkbox">
+                                <input type="checkbox" class="checkbox-input" name="checkboxLogin" id="checkbox-login">
+                                <label for="checkbox-login" class="checkbox-label">Remember me</label>
+                            </div>
+                        </div>
+                        <div class="login-bttn">
+                            <button type="submit" class="login-bttn-main" value="">
+                                <span>Sign in</span>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="form-or-text"><span>or</span></div>
+                    <ul class="social-login">
+                        <li>
+                            <a href="#!" class="link-facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!" class="link-twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!" class="link-google-plus">
+                                <i class="fab fa-google-plus-g"></i>
+                                <span>Google+</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Login Section end -->
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "main/base.html" %}{% block contentmain %}
+
+<!-- crumbs section start -->
+<section id="crumbs">
+    <div class="container crumbs-bread">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-auto">
+                <div class="crumbs-info">
+                    <span class="crumbs-home"><a href="/">Home</a></span> <i class="fas fa-angle-right"></i>
+                    <span class="crumbs-about">Gallery</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- crumbs section end -->
+
+
+<!-- Gallery section start -->
+<section id="gallery">
+    <div class="container section-padding">
+        <div class="row">
+            <div class="col-12">
+                {% for galleryheading in galleryheadings %}
+                <div class="section-heading">
+                    <span class="section-heading-span">{{galleryheading.gallery_subheding}}</span>
+                    <h2 class="section-heading-h2">{{galleryheading.gallery_heading}}</h2>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-12">
+                <div class="section-nav">
+                    <ul class="section-nav-list d-flex gallery-nav-list">
+                        {% for gallerymenu in gallerymenus %}
+                        <li>{{gallerymenu.gallery_menu}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center ">
+            {% for gallerybox in galleryboxs %}
+            <div class="col-4 col-margin animation">
+                <a href="#!" class="gallery-item ">
+                    <img class="image-animation" src="/static/uploads/{{gallerybox.gallerybox_img}}" alt="{{gallerybox.gallerybox_title}}">
+                    <div class="gallery-item-caption"><span>{{gallerybox.gallerybox_title}}</span></div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- Gallery section end -->
+
+
+{% endblock %}

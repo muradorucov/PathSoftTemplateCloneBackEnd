@@ -1,0 +1,24 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Project Button Update</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('projectBtnUpdate', id=projectbtn.id)}}" method='POST'>
+                    {{ form.projectbtn_title(class="form-control my-2",placeholder="Enter: Project Button Title",
+                    value=projectbtn.projectbtn_title)}}
+                    {{ form.projectbtn_icon(class="form-control my-2",placeholder="Enter: Project Button Icon",
+                    value=projectbtn.projectbtn_icon)}}
+                    {{ form.projectbtn_url(class="form-control my-2",placeholder="Enter: Project Button Link",
+                    value=projectbtn.projectbtn_url)}}
+                    {{ form.submit(value='Update Project Button',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

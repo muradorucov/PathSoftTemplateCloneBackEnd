@@ -1,0 +1,96 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Header Contact Info Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('hcContactAdd')}}" method='POST'>
+                    {{ form.hc_content(class='form-control my-2', placeholder="Enter: Contact Content")}}
+                    {{ form.hc_icon_class(class='form-control my-2', placeholder="Enter: Icon Class")}}
+                    {{ form.hc_url(class='form-control my-2', placeholder="Enter: Url")}}
+                    {{ form.submit(value='Add Contact info',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====Header Contact Info Start==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+
+                <table class="table table-hover table-coloradmin "
+                    style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Content</th>
+                            <th scope="col">Icon-Class</th>
+                            <th scope="col">Url</th>
+                            <th scope="col">Action</th>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for header_contact in header_contacts %}
+                        <tr>
+                            <td scope="row">{{header_contact.id}}</td>
+                            <td>{{header_contact.hc_content}}</td>
+                            <td>{{header_contact.hc_icon_class}}</td>
+                            <td>{{header_contact.hc_url}}</td>
+                            <td>
+                                <a href="{{url_for('hcContactDelete',id=header_contact.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('hcContactUpdate',id=header_contact.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <!-- =====Header Contact Info End==== -->
+
+    <div class="container marg">
+        <div class="row d-flex justify-content-center">
+            <div class="col-7 ">
+                <div class="exam">
+                    <h2>Url Example</h2>
+
+                    <div class="row-url">
+                        <div>
+                            E-Mail
+                        </div>
+                        <div>
+                            mailto:jonkerry@mail.com
+                        </div>
+                    </div>
+                    <div class="row-url">
+                        <div>
+                            Telephone Number
+                        </div>
+                        <div>
+                            tel:+4537751425
+                        </div>
+                    </div>
+                    <div class="row-url">
+                        <div>
+                            Link
+                        </div>
+                        <div>
+                            http://tempate.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

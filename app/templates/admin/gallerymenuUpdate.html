@@ -1,0 +1,20 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Gallery Menu Update</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <form action="{{url_for('gallerymenuUpdate',id=gallerymenu.id)}}" method='POST'>
+                    {{ form.gallery_menu(class="form-control my-2",placeholder="Enter:Menu name",
+                    value=gallerymenu.gallery_menu)}}
+                    {{ form.submit(value='Update Gallery Menu',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

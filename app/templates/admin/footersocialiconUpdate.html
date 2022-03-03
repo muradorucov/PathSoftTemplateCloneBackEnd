@@ -1,0 +1,26 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Footer Social Icon Update</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('footersocialiconUpdate',id=footer_social_icon.id)}}" method='POST'>
+                    {{ form.footer_si_name(class="form-control my-2",placeholder="Enter: Icon name",
+                    value=footer_social_icon.footer_si_name)}}
+                    {{ form.footer_si_class(class="form-control my-2",placeholder="Enter: Icon Class",
+                    value=footer_social_icon.footer_si_class)}}
+                    {{ form.footer_si_link(class="form-control my-2",placeholder="Enter: Url",
+                    value=footer_social_icon.footer_si_link)}}
+                    {{ form.submit(value='Update Social Icon',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

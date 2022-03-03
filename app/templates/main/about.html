@@ -1,0 +1,108 @@
+{% extends "main/base.html" %}{% block contentmain %}
+
+<!-- crumbs section start -->
+<section id="crumbs">
+    <div class="container crumbs-bread">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-auto">
+                <div class="crumbs-info">
+                    <span class="crumbs-home"><a href="/">Home</a></span> <i class="fas fa-angle-right"></i>
+                    <span class="crumbs-about">About us</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- crumbs section end -->
+
+<!-- more-info-about-us section start -->
+<section id="more-info-about-us">
+    <div class="container section-padding">
+        <div class="row">
+            <div class="col-12">
+                {% for aboutheading in aboutheadings %}
+                <div class="section-heading">
+                    <span class="section-heading-span">{{aboutheading.about_subheading}}</span>
+                    <h2 class="section-heading-h2">{{aboutheading.about_heading}}</h2>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {% for aboutdesc in aboutdesces %}
+                <div class="about-item">
+                    <div class="about-img ">
+                        <img src="static/uploads/{{aboutdesc.about_img}}" alt="">
+                    </div>
+                    <span>{{aboutdesc.about_desc|safe}}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- more-info-about-us section end -->
+
+<!-- Reasons section start -->
+<section id="reasons" class="section-padding">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12">
+                {% for reasonheading in reasonheadings %}
+                <div class="section-heading">
+                    <span class="section-heading-span">{{reasonheading.reason_subheading}}</span>
+                    <h2 class="section-heading-h2">{{reasonheading.reason_title}}</h2>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {% for reasonitem in reasonitems %}
+            <div class="col-4 col-margin reason-scroll">
+                <div class="reasons-item">
+                    <div class="reasons-item-number"><span>{{reasonitem.reasonitem_number}}</span></div>
+                    <div class="reasons-item-info">
+                        <h4>{{reasonitem.reasonitem_title}}</h4>
+                        <p>{{reasonitem.reasonitem_text}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- Reasons section end -->
+
+<!-- customers section start -->
+<section id="customers">
+    <div class="container section-padding">
+        <div class="row ">
+            <div class="col-12">
+                {% for customerheading in customerheadings %}
+                <div class="section-heading">
+                    <span class="section-heading-span">{{customerheading.customer_subheding}}</span>
+                    <h2 class="section-heading-h2">{{customerheading.customer_heading}}</h2>
+                    <div class="col-6 margin-auto-ab">
+                        <p>{{customerheading.customer_desc}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {% for brand in brands %}
+            <div class="col-3  col-margin">
+                <div class="customers-item animation">
+                    <img src="/static/uploads/{{brand.brand_img}}" alt="{{brand.brand_imgname}}">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- customers section end -->
+
+
+{% endblock %}

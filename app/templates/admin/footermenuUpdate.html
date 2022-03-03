@@ -1,0 +1,23 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Footer Menu Update</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('footermenuUpdate', id=footer_menu.id)}}" method='POST'>
+                    {{ form.ft_menu_name(class="form-control my-2",placeholder="Enter:Meniu Title",
+                    value=footer_menu.ft_menu_name)}}
+                    {{ form.ft_menu_link(class="form-control my-2",placeholder="Enter: Url",
+                    value=footer_menu.ft_menu_link)}}
+                    {{ form.submit(value='Update Menu Name',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

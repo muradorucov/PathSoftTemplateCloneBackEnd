@@ -1,0 +1,20 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Project Menu Update</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <form action="{{url_for('projectmenuUpdate',id=projectmenu.id)}}" method='POST'>
+                    {{ form.project_menu_name(class="form-control my-2",placeholder="Enter:Menu name",
+                    value=projectmenu.project_menu_name)}}
+                    {{ form.submit(value='Update Project Menu',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

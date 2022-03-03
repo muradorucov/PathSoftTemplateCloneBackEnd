@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Header Contact Info Upadte</h3>
+    <hr>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-9 marg">
+                <form action="{{url_for('hcContactUpdate',id=header_contact.id)}}" method='POST'>
+                    {{ form.hc_content(class='form-control my-2', placeholder="Enter: Contact Content",
+                    value=header_contact.hc_content)}}
+                    {{ form.hc_icon_class(class='form-control my-2', placeholder="Enter: Icon Class",
+                    value=header_contact.hc_icon_class)}}
+                    {{ form.hc_url(class='form-control my-2', placeholder="Enter: Url", value=header_contact.hc_url)}}
+                    {{ form.submit(value='Update Contact info',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container marg">
+        <div class="row d-flex justify-content-center">
+            <div class="col-7 ">
+                <div class="exam">
+                    <h2>Url Example</h2>
+
+                    <div class="row-url">
+                        <div>
+                            E-Mail
+                        </div>
+                        <div>
+                            mailto:jonkerry@mail.com
+                        </div>
+                    </div>
+                    <div class="row-url">
+                        <div>
+                            Telephone Number
+                        </div>
+                        <div>
+                            tel:+4537751425
+                        </div>
+                    </div>
+                    <div class="row-url">
+                        <div>
+                            Link
+                        </div>
+                        <div>
+                            http://tempate.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

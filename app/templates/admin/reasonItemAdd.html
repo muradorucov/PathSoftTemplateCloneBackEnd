@@ -1,0 +1,59 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Reason Item Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <form action="{{url_for('reasonItemAdd')}}" method='POST'>
+                    {{ form.reasonitem_number(class="form-control my-2",placeholder="Enter:Number")}}
+                    {{ form.reasonitem_title(class="form-control my-2",placeholder="Enter: Title")}}
+                    {{ form.reasonitem_text(class="form-control my-2",placeholder="Enter: Text")}}
+                    {{ form.submit(value='Add Reason Item',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =====Reasons Section  Start==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Number</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">TexT</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for reasonitem in reasonitems %}
+                        <tr>
+                            <td scope="row">{{reasonitem.id}}</td>
+                            <td>{{reasonitem.reasonitem_number}}</td>
+                            <td>{{reasonitem.reasonitem_title}}</td>
+                            <td>{{reasonitem.reasonitem_text}}</td>
+                            <td>
+                                <a href="{{url_for('reasonItemDelete',id=reasonitem.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('reasonItemUpdate',id=reasonitem.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =====Reasons Section  End==== -->
+
+{% endblock %}

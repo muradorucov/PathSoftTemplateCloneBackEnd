@@ -1,0 +1,22 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">News Heading Update</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <form action="{{url_for('newsheadingUpdate',id=newsheading.id)}}" method='POST'>
+                    {{ form.news_subheading(class="form-control my-2",placeholder="Enter:Subheading",
+                    value=newsheading.news_subheading)}}
+                    {{ form.news_title(class="form-control my-2",placeholder="Enter: Heading",
+                    value=newsheading.news_title)}}
+                    {{ form.submit(value='Update News Heading',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

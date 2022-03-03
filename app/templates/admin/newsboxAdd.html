@@ -1,0 +1,63 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">News Box Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <form action="{{url_for('newsboxAdd')}}" method='POST' enctype="multipart/form-data">
+                    <input type="text" class="form-control my-2" name='newsbox_title' placeholder="Enter: News Title">
+                    <input type="text" class="form-control my-2" name='newsbox_link' placeholder="Enter: News Link">
+                    <input type="date" class="form-control my-2" name='newsbox_date'>
+                    <textarea name="newsbox_desc" class="form-control my-2" cols="100" rows="5"
+                        placeholder="Enter:News Info"></textarea>
+                    <input type="file" class="form-control-file my-2" name='newsbox_img' multiple>
+                    <input type="submit" class="btn btn-primary btn-lg btn-block" value='Add News Box'>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- =====News Box End==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Info</th>
+                            <th scope="col">Link</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for newsbox in newsboxs %}
+                        <tr>
+                            <td scope="row">{{newsbox.id}}</td>
+                            <td>{{newsbox.newsbox_title}}</td>
+                            <td>{{newsbox.newsbox_desc}}</td>
+                            <td>{{newsbox.newsbox_link}}</td>
+                            <td>{{newsbox.newsbox_img}}</td>
+                            <td>{{newsbox.newsbox_date}}</td>
+                            <td>
+                                <a href="{{url_for('newsboxDelete',id=newsbox.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('newsboxUpdate',id=newsbox.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- =====News Box Start==== -->
+</div>
+{% endblock %}

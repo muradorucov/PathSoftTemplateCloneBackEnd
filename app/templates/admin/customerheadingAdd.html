@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Customer Heading Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('customerheadingAdd')}}" method='POST'>
+                    {{ form.customer_subheding(class="form-control my-2",placeholder="Enter: SubHeading")}}
+                    {{ form.customer_heading(class="form-control my-2",placeholder="Enter: Heading")}}
+                    {{ form.customer_desc(class="form-control my-2",placeholder="Enter: Info ")}}
+                    {{ form.submit(value='Add Heading',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =====Customer Heading Start==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Subheading</th>
+                            <th scope="col">Heading</th>
+                            <th scope="col">Info</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for customerheading in customerheadings %}
+                        <tr>
+                            <td scope="row">{{customerheading.id}}</td>
+                            <td>{{customerheading.customer_subheding}}</td>
+                            <td>{{customerheading.customer_heading}}</td>
+                            <td>{{customerheading.customer_desc}}</td>
+                            <td>
+                                <a href="{{url_for('customerheadingDelete', id=customerheading.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('customerheadingUpdate', id=customerheading.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- =====Customer Heading End==== -->
+</div>
+{% endblock %}

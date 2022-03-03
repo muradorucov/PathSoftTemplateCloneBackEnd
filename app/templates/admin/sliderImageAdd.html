@@ -1,0 +1,60 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Slider Image Add</h3>
+    <hr>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-9">
+                <form action="{{url_for('sliderImageAdd')}}" method='POST' enctype="multipart/form-data">
+                    {{ form.slider_title(class="form-control my-2",placeholder="Enter: Slider Title")}}
+                    {{ form.slider_text(class="form-control my-2",placeholder="Enter: Slider Text")}}
+                    {{ form.slider_alt(class="form-control my-2",placeholder="Enter: Image Name")}}
+                    {{ form.slider_img(class="form-control-file my-2")}}
+                    {{ form.submit(value='Add Slider',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <!-- =====Slider Section Start==== -->
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">TiTle</th>
+                            <th scope="col">Text</th>
+                            <th scope="col">Alt</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for slider in sliders %}
+                        <tr>
+                            <td scope="row">{{slider.id}}</td>
+                            <td>{{slider.slider_title}}</td>
+                            <td>{{slider.slider_text}}</td>
+                            <td>{{slider.slider_alt}}</td>
+                            <td>{{slider.slider_img}}</td>
+                            <td>
+                                <a href="{{url_for('sliderImageDelete', id=slider.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('sliderImageUpdate', id=slider.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <!-- =====Slider Section End==== -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Company Logo Add</h3>
+    <hr>
+    
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('meniuLogoAdd')}}" method='POST' enctype="multipart/form-data">
+                    {{ form.logo_title(class="form-control my-2",placeholder="Enter: Logo Name")}}
+                    {{ form.logo_url(class="form-control my-2",placeholder="Enter: Logo Url")}}
+                    {{ form.logo_alt(class="form-control my-2",placeholder="Enter: Company Name")}}
+                    {{ form.logo_img(class="form-control-file my-2")}}
+                    {{ form.submit(value='Add Logo',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <!-- =====Company Logo Start==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Logo Title</th>
+                            <th scope="col">Logo image</th>
+                            <th scope="col">Logo Url</th>
+                            <th scope="col">Logo alt</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for logo in logos %}
+                        <tr>
+                            <td scope="row">{{logo.id}}</td>
+                            <td>{{logo.logo_title}}</td>
+                            <td>{{logo.logo_img}}</td>
+                            <td>{{logo.logo_url}}</td>
+                            <td>{{logo.logo_alt}}</td>
+                            <td>
+                                <a href="{{url_for('meniuLogoDelete', id=logo.id)}}"><i class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('meniuLogoUpdate', id=logo.id)}}"><i class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- =====Company Logo End==== -->
+</div>
+{% endblock %}

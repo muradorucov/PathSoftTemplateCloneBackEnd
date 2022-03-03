@@ -1,0 +1,53 @@
+{% extends "admin/base.html" %} {% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Footer Menu Add</h3>
+    <hr>
+
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('footermenuAdd')}}" method='POST'>
+                    {{ form.ft_menu_name(class="form-control my-2",placeholder="Enter:Meniu Title")}}
+                    {{ form.ft_menu_link(class="form-control my-2",placeholder="Enter: Url")}}
+                    {{ form.submit(value='Add Menu Name',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====Footer Menu Start==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Url</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for footer_menu in footer_menus %}
+                        <tr>
+                            <td scope="row">{{footer_menu.id}}</td>
+                            <td>{{footer_menu.ft_menu_name}}</td>
+                            <td>{{footer_menu.ft_menu_link}}</td>
+                            <td>
+                                <a href="{{url_for('footermenuDelete', id=footer_menu.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('footermenuUpdate', id=footer_menu.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <!-- =====Footer Menu End==== -->
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Team Button Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('teambuttonAdd')}}" method='POST'>
+                    {{ form.teambuuton_title(class="form-control my-2",placeholder="Enter: Team Button Title")}}
+                    {{ form.teambuuton_icon(class="form-control my-2",placeholder="Enter: Team Button Icon")}}
+                    {{ form.teambuuton_url(class="form-control my-2",placeholder="Enter: Team Button Link")}}
+                    {{ form.submit(value='Add Team Button',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =====Team Button Start==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Icon Name</th>
+                            <th scope="col">Url</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for teambutton in teambuttons %}
+                        <tr>
+                            <td scope="row">{{teambutton.id}}</td>
+                            <td>{{teambutton.teambuuton_title}}</td>
+                            <td>{{teambutton.teambuuton_icon}}</td>
+                            <td>{{teambutton.teambuuton_url}}</td>
+                            <td>
+                                <a href="{{url_for('teambuttonDelete', id=teambutton.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('teambuttonUpdate', id=teambutton.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =====Team Button End==== -->
+{% endblock %}

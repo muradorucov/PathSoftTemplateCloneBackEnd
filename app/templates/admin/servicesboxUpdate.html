@@ -1,0 +1,26 @@
+{% extends "admin/base.html" %}
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Services box Update</h3>
+    <hr>
+
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('servicesboxUpdate', id=servicesbox.id)}}" method='POST'>
+                    {{ form.servicesbox_head(class="form-control my-2",placeholder="Enter: Service box Title",
+                    value=servicesbox.servicesbox_head)}}
+                    {{ form.servicesbox_desc(class="form-control my-2",placeholder="Enter: Service box text",
+                    value=servicesbox.servicesbox_desc)}}
+                    {{ form.servicesbox_url(class="form-control my-2",placeholder="Enter: Service box Link",
+                    value=servicesbox.servicesbox_url)}}
+                    {{ form.servicesbox_icon(class="form-control my-2",placeholder="Enter: Service box Icon name ",
+                    value=servicesbox.servicesbox_icon)}}
+                    {{ form.submit(value='Update Service box',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

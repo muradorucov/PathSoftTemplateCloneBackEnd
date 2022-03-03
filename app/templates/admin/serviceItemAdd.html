@@ -1,0 +1,61 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Service Item Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('serviceItemAdd')}}" method='POST'>
+                    {{ form.servitem_title(class="form-control my-2",placeholder="Enter: Service Item Title")}}
+                    {{ form.servitem_text(class="form-control my-2",placeholder="Enter: Service Item text")}}
+                    {{ form.servitem_icon(class="form-control my-2",placeholder="Enter: Service Item Icon name")}}
+                    {{ form.servitem_url(class="form-control my-2",placeholder="Enter: Service Item Link")}}
+                    {{ form.submit(value='Add Service Item',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =====Services Heading Start==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Text</th>
+                            <th scope="col">Icon Name</th>
+                            <th scope="col">Url</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for serviceitem in serviceitems %}
+                        <tr>
+                            <td scope="row">{{serviceitem.id}}</td>
+                            <td>{{serviceitem.servitem_title}}</td>
+                            <td>{{serviceitem.servitem_text}}</td>
+                            <td>{{serviceitem.servitem_icon}}</td>
+                            <td>{{serviceitem.servitem_url}}</td>
+                            <td>
+                                <a href="{{url_for('serviceItemDelete', id=serviceitem.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('serviceItemUpdate', id=serviceitem.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =====Services Heading End==== -->
+{% endblock %}

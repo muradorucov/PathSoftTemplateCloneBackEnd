@@ -1,0 +1,50 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Project Menu Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <form action="{{url_for('projectmenuAdd')}}" method='POST'>
+                    {{ form.project_menu_name(class="form-control my-2",placeholder="Enter:Menu name")}}
+                    {{ form.submit(value='Add Project Menu',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- =====Reason Heading End==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Menu Name</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for projectmenu in projectmenus %}
+                        <tr>
+                            <td scope="row">{{projectmenu.id}}</td>
+                            <td>{{projectmenu.project_menu_name}}</td>
+                            <td>
+                                <a href="{{url_for('projectmenuDelete',id=projectmenu.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('projectmenuUpdate',id=projectmenu.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =====Reason Heading Start==== -->
+{% endblock %}

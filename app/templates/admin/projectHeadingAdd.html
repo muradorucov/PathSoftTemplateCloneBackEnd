@@ -1,0 +1,53 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Project Heading Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <form action="{{url_for('projectHeadingAdd')}}" method='POST'>
+                    {{ form.project_subheading(class="form-control my-2",placeholder="Enter:Subheading")}}
+                    {{ form.project_title(class="form-control my-2",placeholder="Enter: Heading")}}
+                    {{ form.submit(value='Add Project Heading',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- =====Project Heading End==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Heading</th>
+                            <th scope="col">Subheading</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for projectheading in projectheadings %}
+                        <tr>
+                            <td scope="row">{{projectheading.id}}</td>
+                            <td>{{projectheading.project_subheading}}</td>
+                            <td>{{projectheading.project_title}}</td>
+                            <td>
+                                <a href="{{url_for('projectHeadingDelete',id=projectheading.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('projectHeadingUpdate',id=projectheading.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- =====Project Heading Start==== -->
+</div>
+{% endblock %}

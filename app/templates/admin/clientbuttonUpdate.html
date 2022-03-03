@@ -1,0 +1,24 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+<h3 class="my-3" style="text-align: center;">Client Button Update</h3>
+<hr>
+<div class="container marg">
+    <div class="row justify-content-center">
+        <div class="col-9 ">
+            <form action="{{url_for('clientbuttonUpdate', id=clientbutton.id)}}" method='POST'>
+                {{ form.clientbutton_title(class="form-control my-2",placeholder="Enter: Client Button Title",
+                value=clientbutton.clientbutton_title)}}
+                {{ form.clientbutton_icon(class="form-control my-2",placeholder="Enter: Client Button Icon",
+                value=clientbutton.clientbutton_icon)}}
+                {{ form.clientbutton_url(class="form-control my-2",placeholder="Enter: Client Button Link",
+                value=clientbutton.clientbutton_url)}}
+                {{ form.submit(value='Update Client Button',class='btn btn-secondary btn-lg btn-block')}}
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

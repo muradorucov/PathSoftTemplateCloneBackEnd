@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Footer Social Icon Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('footersocialiconAdd')}}" method='POST'>
+                    {{ form.footer_si_name(class="form-control my-2",placeholder="Enter: Icon name")}}
+                    {{ form.footer_si_class(class="form-control my-2",placeholder="Enter: Icon Class")}}
+                    {{ form.footer_si_link(class="form-control my-2",placeholder="Enter: Url")}}
+                    {{ form.submit(value='Add Social Icon',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <!-- =====Header Social Icon Start==== -->
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Icon-Class</th>
+                            <th scope="col">Url</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for footer_social_icon in footer_social_icons %}
+                        <tr>
+                            <td scope="row">{{footer_social_icon.id}}</td>
+                            <td>{{footer_social_icon.footer_si_name}}</td>
+                            <td>{{footer_social_icon.footer_si_class}}</td>
+                            <td>{{footer_social_icon.footer_si_link}}</td>
+                            <td>
+                                <a href="{{url_for('footersocialiconDelete', id=footer_social_icon.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('footersocialiconUpdate',id=footer_social_icon.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <!-- =====Footer Social Icon End==== -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

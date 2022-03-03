@@ -1,0 +1,27 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">News Box Update</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('newsboxUpdate',id=newsbox.id)}}" method='POST' enctype="multipart/form-data">
+                    <input type="text" class="form-control my-2" name='newsbox_title' placeholder="Enter: News Title"
+                        value="{{newsbox.newsbox_title}}">
+                    <input type="text" class="form-control my-2" name='newsbox_link' placeholder="Enter: News Link"
+                        value="{{newsbox.newsbox_link}}">
+                    <input type="date" class="form-control my-2" name='newsbox_date' value="{{newsbox.newsbox_date}}">
+                    <textarea name="newsbox_desc" class="form-control my-2" cols="100" rows="10" " placeholder=" Enter:
+                        News Info">{{newsbox.newsbox_desc}}</textarea>
+                    <input type="file" class="form-control-file my-2" name='newsbox_img' multiple>
+                    <input type="submit" class="btn btn-secondary btn-lg btn-block" value='Update News Box'>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

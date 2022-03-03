@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">News Button Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('newsbuttonAdd')}}" method='POST'>
+                    {{ form.newsbutton_title(class="form-control my-2",placeholder="Enter: News Button Title")}}
+                    {{ form.newsbutton_icon(class="form-control my-2",placeholder="Enter: News Button Icon")}}
+                    {{ form.newsbutton_url(class="form-control my-2",placeholder="Enter: News Button Link")}}
+                    {{ form.submit(value='Add News Button',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =====News Button Start==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Icon Name</th>
+                            <th scope="col">Url</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for newsbutton in newsbuttons %}
+                        <tr>
+                            <td scope="row">{{newsbutton.id}}</td>
+                            <td>{{newsbutton.newsbutton_title}}</td>
+                            <td>{{newsbutton.newsbutton_icon}}</td>
+                            <td>{{newsbutton.newsbutton_url}}</td>
+                            <td>
+                                <a href="{{url_for('newsbuttonDelete', id=newsbutton.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('newsbuttonUpdate', id=newsbutton.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- =====News Button End==== -->
+</div>
+{% endblock %}

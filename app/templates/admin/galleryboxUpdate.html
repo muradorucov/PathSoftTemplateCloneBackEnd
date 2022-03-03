@@ -1,0 +1,22 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">News Box Update</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('galleryboxUpdate',id=gallerybox.id)}}" method='POST' enctype="multipart/form-data">
+                    {{ form.gallerybox_title(class="form-control my-2",placeholder="Enter: Gallery Box Title",
+                    value=gallerybox.gallerybox_title)}}
+                    {{ form.gallerybox_img(class="form-control-file my-2")}}
+                    {{ form.submit(value='Update Gallery Image',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

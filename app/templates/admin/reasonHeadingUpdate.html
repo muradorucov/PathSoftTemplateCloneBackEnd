@@ -1,0 +1,22 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Reason Heading Update</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <form action="{{url_for('reasonHeadingUpdate', id=reasonheading.id)}}" method='POST'>
+                    {{ form.reason_subheading(class="form-control my-2",placeholder="Enter: Subheading",
+                    value=reasonheading.reason_subheading)}}
+                    {{ form.reason_title(class="form-control my-2",placeholder="Enter: Heading",
+                    value=reasonheading.reason_title)}}
+                    {{ form.submit(value='Update Reason Heading',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

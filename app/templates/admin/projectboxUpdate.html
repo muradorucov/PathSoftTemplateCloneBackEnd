@@ -1,0 +1,29 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Project Box Update</h3>
+    <hr>
+    <div class="container ">
+        <div class="row justify-content-center">
+            <div class="col-9  ">
+                <form action="{{url_for('projectboxUpdate',id=projectbox.id)}}" method='POST'
+                    enctype="multipart/form-data">
+                    {{ form.project_name(class="form-control my-2",placeholder="Enter: Project Name",
+                    value=projectbox.project_name)}}
+                    {{ form.project_info(class="form-control my-2",placeholder="Enter: Project Info",
+                    value=projectbox.project_info)}}
+                    {{ form.project_link(class="form-control my-2",placeholder="Enter: Project Link",
+                    value=projectbox.project_link)}}
+                    {{ form.project_link_icon(class="form-control my-2",placeholder="Enter: Project Link Icon",
+                    value=projectbox.project_link_icon)}}
+                    {{ form.project_img(class="form-control-file my-2")}}
+                    {{ form.submit(value='Update Project',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

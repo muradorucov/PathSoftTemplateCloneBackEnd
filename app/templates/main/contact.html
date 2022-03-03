@@ -1,0 +1,106 @@
+{% extends "main/base.html" %}{% block contentmain %}
+
+
+<!-- crumbs section start -->
+<section id="crumbs">
+    <div class="container crumbs-bread">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-auto">
+                <div class="crumbs-info">
+                    <span class="crumbs-home"><a href="/">Home</a></span> <i class="fas fa-angle-right"></i>
+                    <span class="crumbs-about">Contact Us</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- crumbs section end -->
+
+
+
+<!-- contact-main section start -->
+<section id="contact-main">
+    <div class="container section-padding">
+        <div class="row">
+            <div class="col-12">
+                {% for contactheading in contactheadings %}
+                <div class="section-heading">
+                    <span class="section-heading-span">{{contactheading.contact_subheding}}</span>
+                    <h2 class="section-heading-h2">{{contactheading.contact_heading}}</h2>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a
+                        href="https://www.google.com/maps/place/4730+Crystal+Springs+Dr,+Los+Angeles,+CA+90027,+%D0%A1%D0%A8%D0%90/data=!4m2!3m1!1s0x80c2c08ea296b841:0x5030fc6064b8e8d1?sa=X&amp;ved=2ahUKEwijmtvUqZvjAhXjkIsKHYNsDswQ8gEwAHoECAkQAQ">
+                        <span>4730 Crystal Springs Dr, <br>Los Angeles, CA</span></a>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="contact-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <a href="tel:+1 323-913-4688"><span>+1 323-913-4688</span></a><br>
+                    <a href="tel:+1 323-888-4554"><span>+1 323-888-4554</span></a>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:mail@example.com"><span>mail@example.com</span></a><br>
+                    <a href="mailto:info@example.com"><span>info@example.com</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h3>Get in touch</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <form action="/admin/contactform" class="contact-form" method='POST'>
+                    <div class="row ">
+                        <div class="col-6">
+                            <input type="text" name="username" placeholder="Your Name and Surname" class="form">
+                        </div>
+                        <div class="col-6">
+                            <input type="tel" name="userphone" placeholder="Your Phone" class="form">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="email" name="useremail" placeholder="Your Email" class="form">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <textarea cols="30" rows="8" name="usermessage" placeholder="Your Message"
+                                class="textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-start">
+                            <div class="bttn-row " style="margin-top:20px;">
+                                <button type="submit" class="bttn">Send Message</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-6">
+               {% for contactmap in contactmaps %}
+                <iframe src="{{contactmap.map_link}}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+               {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- contact-main section end -->
+
+
+{% endblock %}

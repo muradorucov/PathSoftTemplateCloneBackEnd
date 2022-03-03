@@ -1,0 +1,53 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">News Post Heading Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <form action="{{url_for('newspostheadingAdd')}}" method='POST'>
+                    {{ form.newspost_subheading(class="form-control my-2",placeholder="Enter:Subheading")}}
+                    {{ form.newspost_heading(class="form-control my-2",placeholder="Enter: Heading")}}
+                    {{ form.submit(value='Add News Heading',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- =====News Heading End==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Heading</th>
+                            <th scope="col">Subheading</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for newspostheading in newspostheadings %}
+                        <tr>
+                            <td scope="row">{{newspostheading.id}}</td>
+                            <td>{{newspostheading.newspost_subheading}}</td>
+                            <td>{{newspostheading.newspost_heading}}</td>
+                            <td>
+                                <a href="{{url_for('newspostheadingDelete',id=newspostheading.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('newspostheadingUpdate',id=newspostheading.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- =====News Heading Start==== -->
+</div>
+{% endblock %}

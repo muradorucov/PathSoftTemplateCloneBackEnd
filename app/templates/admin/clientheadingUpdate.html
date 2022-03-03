@@ -1,0 +1,22 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Client Heading Update</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <form action="{{url_for('clientheadingUpdate', id=clientheading.id)}}" method='POST'>
+                    {{ form.client_subheading(class="form-control my-2",placeholder="Enter: Client SubHeading",
+                    value=clientheading.client_subheading)}}
+                    {{ form.client_title(class="form-control my-2",placeholder="Enter: Client Heading",
+                    value=clientheading.client_title)}}
+                    {{ form.submit(value='Update Client Heading',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Contact Form</h3>
+    <hr>
+    <!-- ===== Start==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Name and Surname</th>
+                            <th scope="col">User Phone</th>
+                            <th scope="col">User Email</th>
+                            <th scope="col">User Message</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for contactform in contactforms %}
+                        <tr>
+                            <td scope="row">{{contactform.id}}</td>
+                            <td>{{contactform.username}}</td>
+                            <td>{{contactform.userphone}}</td>
+                            <td>{{contactform.useremail}}</td>
+                            <td>{{contactform.usermessage}}</td>
+                            <td>
+                                <a href="{{url_for('contactformDelete', id=contactform.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ===== End==== -->
+{% endblock %}

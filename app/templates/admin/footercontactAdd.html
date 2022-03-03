@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Footer Contact Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('footercontactAdd')}}" method='POST'>
+                    {{ form.footer_contact_name(class="form-control my-2",placeholder="Enter: Footer Contact Name ")}}
+                    {{ form.footer_contact_icon(class="form-control my-2",placeholder="Enter: Footer Contact Icon Class
+                    ")}}
+                    {{ form.footer_contact_link(class="form-control my-2",placeholder="Enter: Footer Contact link ")}}
+                    {{ form.submit(value='Add Footer Contact',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====Footer Contact Start==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Icon Name</th>
+                            <th scope="col">Link</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for footer_contact in footer_contacts %}
+                        <tr>
+                            <td scope="row">{{footer_contact.id}}</td>
+                            <td>{{footer_contact.footer_contact_name}}</td>
+                            <td>{{footer_contact.footer_contact_icon}}</td>
+                            <td>{{footer_contact.footer_contact_link}}</td>
+                            <td>
+                                <a href="{{url_for('footercontactDelete', id=footer_contact.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('footercontactUpdate', id=footer_contact.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- =====Footer Contact End==== -->
+</div>
+{% endblock %}

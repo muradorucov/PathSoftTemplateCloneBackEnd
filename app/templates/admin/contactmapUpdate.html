@@ -1,0 +1,20 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Company Loaction Link Update</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <form action="{{url_for('contactmapUpdate', id=contactmap.id)}}" method='POST'>
+                    <textarea name="map_link" id="" cols="10" rows="5"
+                        class="form-control my-2">{{contactmap.map_link}}</textarea>
+                    {{ form.submit(value='Update Info',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Teammate Socila Icon Update</h3>
+    <hr>
+
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('teamSocilaIconUpdate', id=teamsocialicon.id)}}" method='POST'>
+                    {{ form.teammate_icon_name(class="form-control my-2",placeholder="Enter: Social Icon Name",
+                    value=teamsocialicon.teammate_icon_name)}}
+                    {{ form.teammate_icon_class(class="form-control my-2",placeholder="Enter: Social Icon class",
+                    value=teamsocialicon.teammate_icon_class)}}
+                    {{ form.teammate_icon_link(class="form-control my-2",placeholder="Enter: Social Icon Link",
+                    value=teamsocialicon.teammate_icon_link)}}
+                    {{ form.submit(value='Update Icon',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

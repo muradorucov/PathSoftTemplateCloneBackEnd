@@ -1,0 +1,28 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Slider Image Update</h3>
+    <hr>
+    <div class="container ">
+        <div class="row justify-content-center">
+            <div class="col-9  ">
+                <form action="{{url_for('sliderImageUpdate', id=slider.id)}}" method='POST'
+                    enctype="multipart/form-data">
+                    {{ form.slider_title(class="form-control my-2",placeholder="Enter: Slider
+                    Title",value=slider.slider_title)}}
+                    {{ form.slider_text(class="form-control my-2",placeholder="Enter: Slider Text",
+                    value=slider.slider_text)}}
+                    {{ form.slider_alt(class="form-control my-2",placeholder="Enter: Image Name",
+                    value=slider.slider_alt)}}
+                    {{ form.slider_img(class="form-control-file my-2")}}
+                    {{ form.submit(value='Update Slider',class='btn btn-secondary btn-lg btn-block')}}
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

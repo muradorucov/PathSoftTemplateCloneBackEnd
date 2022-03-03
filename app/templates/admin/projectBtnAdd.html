@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Project Button Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('projectBtnAdd')}}" method='POST'>
+                    {{ form.projectbtn_title(class="form-control my-2",placeholder="Enter: Project Button Title")}}
+                    {{ form.projectbtn_icon(class="form-control my-2",placeholder="Enter: Project Button Icon")}}
+                    {{ form.projectbtn_url(class="form-control my-2",placeholder="Enter: Project Button Link")}}
+                    {{ form.submit(value='Add Project Button',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =====Project Button Start==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Icon Name</th>
+                            <th scope="col">Url</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for projectbtn in projectbtns %}
+                        <tr>
+                            <td scope="row">{{projectbtn.id}}</td>
+                            <td>{{projectbtn.projectbtn_title}}</td>
+                            <td>{{projectbtn.projectbtn_icon}}</td>
+                            <td>{{projectbtn.projectbtn_url}}</td>
+                            <td>
+                                <a href="{{url_for('projectBtnDelete', id=projectbtn.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('projectBtnUpdate', id=projectbtn.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- =====Project Button End==== -->
+</div>
+{% endblock %}

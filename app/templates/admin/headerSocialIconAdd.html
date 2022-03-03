@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Header Social Icon Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('headerSocialIconAdd')}}" method='POST'>
+                    {{ form.hsi_name(class="form-control my-2",placeholder="Enter: Icon name")}}
+                    {{ form.hsi_css_class(class="form-control my-2",placeholder="Enter: Icon Class")}}
+                    {{ form.hsi_url(class="form-control my-2",placeholder="Enter: Url")}}
+                    {{ form.submit(value='Add Social Icon',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <!-- =====Header Social Icon Start==== -->
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Icon-Class</th>
+                            <th scope="col">Url</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for headersocial_icon in headersocial_icons %}
+                        <tr>
+                            <td scope="row">{{headersocial_icon.id}}</td>
+                            <td>{{headersocial_icon.hsi_name}}</td>
+                            <td>{{headersocial_icon.hsi_css_class}}</td>
+                            <td>{{headersocial_icon.hsi_url}}</td>
+                            <td>
+                                <a href="{{url_for('headerSocialIconDelete', id=headersocial_icon.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('headerSocialIconUpdate',id=headersocial_icon.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <!-- =====Header Social Icon End==== -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

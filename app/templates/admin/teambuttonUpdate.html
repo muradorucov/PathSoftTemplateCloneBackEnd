@@ -1,0 +1,26 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Team Button Update</h3>
+    <hr>
+
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('teambuttonUpdate', id=teambutton.id)}}" method='POST'>
+                    {{ form.teambuuton_title(class="form-control my-2",placeholder="Enter: Team Button Title",
+                    value=teambutton.teambuuton_title)}}
+                    {{ form.teambuuton_icon(class="form-control my-2",placeholder="Enter: Team Button Icon",
+                    value=teambutton.teambuuton_icon)}}
+                    {{ form.teambuuton_url(class="form-control my-2",placeholder="Enter: Team Button Link",
+                    value=teambutton.teambuuton_url)}}
+                    {{ form.submit(value='Update Team Button',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Service Box Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('servicesboxAdd')}}" method='POST'>
+                    {{ form.servicesbox_head(class="form-control my-2",placeholder="Enter: services Box Title")}}
+                    {{ form.servicesbox_desc(class="form-control my-2",placeholder="Enter: Service box text")}}
+                    {{ form.servicesbox_url(class="form-control my-2",placeholder="Enter: Service box Link")}}
+                    {{ form.servicesbox_icon(class="form-control my-2",placeholder="Enter: Service box Icon name ")}}
+                    {{ form.submit(value='Add Service Box',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =====Services Heading Start==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Text</th>
+                            <th scope="col">Icon Name</th>
+                            <th scope="col">Url</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for servicesbox in servicesboxs %}
+                        <tr>
+                            <td scope="row">{{servicesbox.id}}</td>
+                            <td>{{servicesbox.servicesbox_head}}</td>
+                            <td>{{servicesbox.servicesbox_desc}}</td>
+                            <td>{{servicesbox.servicesbox_url}}</td>
+                            <td>{{servicesbox.servicesbox_icon}}</td>
+                            <td>
+                                <a href="{{url_for('servicesboxDelete', id=servicesbox.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('servicesboxUpdate', id=servicesbox.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =====Services Heading End==== -->
+{% endblock %}

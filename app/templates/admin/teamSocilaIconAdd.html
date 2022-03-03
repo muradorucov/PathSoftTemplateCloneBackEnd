@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Teammate Socila Icon Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('teamSocilaIconAdd')}}" method='POST'>
+                    {{ form.teammate_icon_name(class="form-control my-2",placeholder="Enter: Social Icon Name")}}
+                    {{ form.teammate_icon_class(class="form-control my-2",placeholder="Enter: Social Icon class")}}
+                    {{ form.teammate_icon_link(class="form-control my-2",placeholder="Enter: Social Icon Link")}}
+                    {{ form.submit(value='Add Icon',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =====Project Button Start==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Icon Name</th>
+                            <th scope="col">Icon Class Name</th>
+                            <th scope="col">Link</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for teamsocialicon in teamsocialicons %}
+                        <tr>
+                            <td scope="row">{{teamsocialicon.id}}</td>
+                            <td>{{teamsocialicon.teammate_icon_name}}</td>
+                            <td>{{teamsocialicon.teammate_icon_class}}</td>
+                            <td>{{teamsocialicon.teammate_icon_link}}</td>
+                            <td>
+                                <a href="{{url_for('teamSocilaIconDelete', id=teamsocialicon.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('teamSocilaIconUpdate', id=teamsocialicon.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =====Project Button End==== -->
+{% endblock %}

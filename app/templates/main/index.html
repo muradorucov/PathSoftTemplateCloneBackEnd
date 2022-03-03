@@ -1,0 +1,399 @@
+{% extends "main/base.html" %}{% block contentmain %}
+
+
+<!-- ==== Slider Section start=== -->
+<div id="carouselExampleIndicators" class="carousel  slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active bcricle"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1" class="bcricle"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2" class="bcricle"></li>
+    </ol>
+    <div class="col-3 button">
+        {% for sliderbttn in sliderbttns %}
+        <a href="{{sliderbttn.sliderurl_url}}">
+            <div class="bttn-blue"><span>{{sliderbttn.sliderurl_title}}</span><i
+                    class="material-icons">{{sliderbttn.sliderurl_icon}}</i></div>
+        </a>
+        {% endfor %}
+    </div>
+    <div class="carousel-inner ">
+        {% for slider in sliders %}
+        <div class="carousel-item {%if loop.index==1%} active {%endif %} ">
+            <img src="static/uploads/{{slider.slider_img}}" alt="{{slider.slider_alt}}">
+            <div class="carousel-caption d-none d-md-block textposition">
+                <h1>{{slider.slider_title}}</h1>
+                <p>{{slider.slider_text}}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </div>
+</div>
+<!-- ==== Slider Section End=== -->
+
+
+<!-- section Services start -->
+<section id="services-bar" class="section-padding">
+    <div class="container width">
+        <div class="row">
+            <div class="col-12 ">
+                {% for serviceheading in serviceheadings %}
+                <div class="section-heading">
+                    <span class="section-heading-span">{{serviceheading.service_subheading}}</span>
+                    <h2 class="section-heading-h2">{{serviceheading.service_title}}</h2>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+
+            {% for serviceitem in serviceitems %}
+            <div class="col-4 services-item-box services-box ">
+                <div class="services-item service-style">
+                    <a href="{{serviceitem.servitem_url}}" class="">
+                        <div class="overlay"></div>
+                        <i
+                            class=" services-icon material-icons material-icons-outlined md-icon1">{{serviceitem.servitem_icon}}</i>
+                        <div class="services-info">
+                            <i
+                                class=" services-icon-main material-icons material-icons-outlined md-icon1">{{serviceitem.servitem_icon}}</i>
+                            <h2 class="section-item-h2">{{serviceitem.servitem_title}}</h2>
+                            <p class="section-title">{{serviceitem.servitem_text}}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+            {# {% endfor %}{% for n in range(1) %} #}
+
+
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                {% for servicebttn in servicebttns %}
+                <div class="bttn-row">
+                    <a href="{{servicebttn.servbttn_url}}">
+                        <div class="bttn">
+                            <span>{{servicebttn.servbttn_title}}</span>
+                            <i class="material-icons"> {{servicebttn.servbttn_icon}}</i>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section Services end -->
+
+
+<!-- Reasons section start -->
+<section id="reasons" class="section-padding">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12">
+                {% for reasonheading in reasonheadings %}
+                <div class="section-heading">
+                    <span class="section-heading-span">{{reasonheading.reason_subheading}}</span>
+                    <h2 class="section-heading-h2">{{reasonheading.reason_title}}</h2>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {% for reasonitem in reasonitems %}
+            <div class="col-4 col-margin reason-scroll ">
+                <div class="reasons-item">
+                    <div class="reasons-item-number"><span>{{reasonitem.reasonitem_number}}</span></div>
+                    <div class="reasons-item-info">
+                        <h4>{{reasonitem.reasonitem_title}}</h4>
+                        <p>{{reasonitem.reasonitem_text}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- Reasons section end -->
+
+
+<!-- Counter section start -->
+<section class="counter">
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <div class="main-counter scroll-counter">
+                    <div class="main-counter-item scroll-counter">
+                        <div class="main-counter-item-center">
+                            <div>
+                                <div class="main-counter-numb number1">0</div>
+                                <div class="main-counter-title">Years Of Experience</div>
+                            </div>
+                        </div>
+                        <div class="main-counter-item-circ"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 scroll-counter">
+                <div class="section-margin-second">
+                    <div class="">
+                        <div class="counter-item-numb"><span class="number2" style="opacity: 1;">0</span>K</div>
+                        <h4 class="counter-item-title">Аpps Developed</h4>
+                    </div>
+                    <div class="">
+                        <div class="counter-item-numb number3" style="opacity: 1;">0
+                        </div>
+                        <h4 class="counter-item-title">Consultans</h4>
+                    </div>
+                    <div class="">
+                        <div class="counter-item-numb number4" style="opacity: 1;">0
+                        </div>
+                        <h4 class="counter-item-title">Employers</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Counter section end -->
+
+
+<!-- Project Section start -->
+<section id="project" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {% for projectheading in projectheadings %}
+                <div class="section-heading">
+                    <span class="section-heading-span">{{projectheading.project_subheading}}</span>
+                    <h2 class="section-heading-h2">{{projectheading.project_title}}</h2>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-12">
+                <ul class="project-meniu">
+                    {% for projectmenu in projectmenus %}
+                    <li>
+                        <a href="#!" class="menu-list-to " data-title="{{projectmenu.project_menu_name}}">
+                            <span data-title="{{projectmenu.project_menu_name}}">
+                                {{projectmenu.project_menu_name}}</span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row project-height justify-content-center">
+
+            {% for projectbox in projectboxs %}
+            <div class="col-4 col-margin animation ">
+                <div class="project-item">
+                    <div class="project-item-card front">
+                        <img src="/static/uploads/{{projectbox.project_img}}" alt="">
+                    </div>
+                    <div class="project-item-card back">
+                        <div class="project-item-card-center">
+                            <h5 class="project-item-title">{{projectbox.project_name}}</h5>
+                            <div class="project-item-desc">
+                                <p>{{projectbox.project_info}}</p>
+                            </div>
+                            <div class="wrapp-btn-circl-arrow justify-content-center">
+                                <a href="{{projectbox.project_link}}" class="btn-circl-arrow btn-circl-arrow-white">
+                                    <i class="material-icons"> {{projectbox.project_link_icon}}</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                {% for projectbtn in projectbtns %}
+                <div class="bttn-row">
+                    <a href="{{projectbtn.projectbtn_url}}">
+                        <div class="bttn">
+                            <span>{{projectbtn.projectbtn_title}}</span>
+                            <i class="material-icons">{{projectbtn.projectbtn_icon}}</i>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Project Section end-->
+
+<!-- Team-info section start -->
+<section id="teaminfo" class="section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                {% for teamheading in teamheadings %}
+                <div class="section-heading">
+                    <span class="section-heading-span">{{teamheading.team_subheading}}</span>
+                    <h2 class="section-heading-h2">{{teamheading.team_title}}</h2>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {% for teambox in teamboxs %}
+            <div class="col-3 team-box teambox">
+                <div class="team-item">
+                    <div class="team-img"><img src="/static/uploads/{{teambox.teammate_img}}"
+                            alt="{{teambox.teammate_name}}"></div>
+                    <div class="team-con">
+                        <ul class="team-social-media">
+
+                            {% for teamsocialicon in teamsocialicons %}
+                            <li>
+                                <a href="{{teamsocialicon.teammate_icon_link}}"
+                                    title="{{teamsocialicon.teammate_icon_name}}"><i
+                                        class="{{teamsocialicon.teammate_icon_class}}"></i>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <div class="team-info-title">
+                            <h4>{{teambox.teammate_name}}</h4>
+                            <p>{{teambox.teammate_position}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                {% for teambutton in teambuttons %}
+                <div class="bttn-row">
+                    <a href="{{teambutton.teambuuton_url}}">
+                        <div class="bttn">
+                            <span>{{teambutton.teambuuton_title}}</span>
+                            <i class="material-icons"> {{teambutton.teambuuton_icon}}</i>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Team-info section end -->
+
+
+<!-- Clients section start -->
+<section id="client">
+    <div class="container section-padding">
+        <div class="row">
+            <div class="col-12">
+                {% for clientheading in clientheadings %}
+                <div class="section-heading">
+                    <span class="section-heading-span">{{clientheading.client_subheading}}</span>
+                    <h2 class="section-heading-h2">{{clientheading.client_title}}</h2>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {% for n in range(1) %}
+            {% for testimonial in testimonials %}
+            <div class="col-4 team-box clientbox">
+                <div class="client-item">
+                    <div class="client-title">
+                        <div class="client-img"><img src="/static/uploads/{{testimonial.clientphoto}}"
+                                alt="{{testimonial.clientphoto}}"></div>
+                        <div class="client-name">
+                            <h4>{{testimonial.clientname}}</h4>
+                            <p>Regular Client</p>
+                        </div>
+                    </div>
+                    <div class="client-info">
+                        <p>{{testimonial.clientmessage}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                {% for clientbutton in clientbuttons %}
+                <div class="bttn-row">
+                    <a href="{{clientbutton.clientbutton_url}}">
+                        <div class="bttn">
+                            <span>{{clientbutton.clientbutton_title}}</span>
+                            <i class="material-icons">{{clientbutton.clientbutton_icon}}</i>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+</section>
+<!-- Clients section end -->
+
+
+<!-- News section start -->
+<section id="news">
+    <div class="container section-padding">
+        <div class="row">
+            <div class="col-12">
+                {% for newsheading in newsheadings %}
+                <div class="section-heading">
+                    <span class="section-heading-span">{{newsheading.news_subheading}}</span>
+                    <h2 class="section-heading-h2">{{newsheading.news_title}}</h2>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {% for newsbox in newsboxs %}
+            <div class="col-4 newsbox">
+                <div class="news-item">
+                    <a href="{{newsbox.newsbox_link}}" class="news-img">
+                        <img src="/static/uploads/{{newsbox.newsbox_img}}" alt="{{newsbox.newsbox_title}}">
+                    </a>
+                    <div class="news-info">
+                        <div class="news-day">
+                            <p>{{newsbox.newsbox_date}}</p>
+                        </div>
+                        <div class="news-item-title">
+                            <a href="{{newsbox.newsbox_link}}">
+                                <h4>{{newsbox.newsbox_title}}</h4>
+                            </a>
+                        </div>
+                        <div class="news-item-text">
+                            <p>{{newsbox.newsbox_desc}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                {% for newsbutton in newsbuttons %}
+                <div class="bttn-row">
+                    <a href="{{newsbutton.newsbutton_url}}">
+                        <div class="bttn">
+                            <span>{{newsbutton.newsbutton_title}}</span>
+                            <i class="material-icons">{{newsbutton.newsbutton_icon}}</i>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- News section end -->
+
+
+{% endblock %}

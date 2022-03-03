@@ -1,0 +1,26 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Slider Button Update</h3>
+    <hr>
+
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('sliderBttnUpdate', id=sliderbttn.id)}}" method='POST'>
+                    {{ form.sliderurl_title(class="form-control my-2",placeholder="Enter:Slider Button title",
+                    value=sliderbttn.sliderurl_title)}}
+                    {{ form.sliderurl_icon(class="form-control my-2",placeholder="Enter: Slider Button Icon class",
+                    value=sliderbttn.sliderurl_icon)}}
+                    {{ form.sliderurl_url(class="form-control my-2",placeholder="Enter: Slider Button Url",
+                    value=sliderbttn.sliderurl_url)}}
+                    {{ form.submit(value='Update Slider Button',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

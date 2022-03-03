@@ -1,0 +1,50 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Gallery Menu Add</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <form action="{{url_for('gallerymenuAdd')}}" method='POST'>
+                    {{ form.gallery_menu(class="form-control my-2",placeholder="Enter:Menu name")}}
+                    {{ form.submit(value='Add Gallery Menu',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- =====Gallery Heading End==== -->
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">Menu Name</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for gallerymenu in gallerymenus %}
+                        <tr>
+                            <td scope="row">{{gallerymenu.id}}</td>
+                            <td>{{gallerymenu.gallery_menu}}</td>
+                            <td>
+                                <a href="{{url_for('gallerymenuDelete',id=gallerymenu.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('gallerymenuUpdate',id=gallerymenu.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =====Gallery Heading Start==== -->
+{% endblock %}

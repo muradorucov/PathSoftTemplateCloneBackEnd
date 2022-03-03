@@ -1,0 +1,22 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Footer Offer Update</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="{{url_for('footerofferUpdate', id=footer_offer.id)}}" method='POST'>
+                    {{ form.offer(class="form-control my-2",placeholder="Enter:Offer Title", value=footer_offer.offer)}}
+                    {{ form.offer_link(class="form-control my-2",placeholder="Enter: Url",
+                    value=footer_offer.offer_link)}}
+                    {{ form.submit(value='Update Offer Name',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

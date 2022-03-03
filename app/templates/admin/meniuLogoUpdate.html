@@ -1,0 +1,24 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">Company Logo Update</h3>
+    <hr>
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <form action="/admin/meniuLogoUpdate/{{logo.id}}" method='POST' enctype="multipart/form-data">
+                    {{ form.logo_title(class="form-control my-2",placeholder="Enter: Logo Name",
+                    value=logo.logo_title)}}
+                    {{ form.logo_url(class="form-control my-2",placeholder="Enter: Logo Url", value=logo.logo_url)}}
+                    {{ form.logo_alt(class="form-control my-2",placeholder="Enter: Company Name", value=logo.logo_alt)}}
+                    {{ form.logo_img(class="form-control-file my-2")}}
+                    {{ form.submit(value='Update Logo',class='btn btn-secondary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
